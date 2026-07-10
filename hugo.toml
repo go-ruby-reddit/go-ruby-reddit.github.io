@@ -1,0 +1,31 @@
+baseURL = "https://go-ruby-reddit.github.io/"
+title = "go-ruby-reddit"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[params.phases]]
+  name = "Session & dynamic dispatch"
+  status = "ready"
+  blurb = "A `Reddit::Session` over the typed go-reddit client. One dynamic entry point — `Call(\"subreddit\", \"golang\", \"hot\", 25)` — maps a snake_case method name to the Go call via `method_missing`."
+[[params.phases]]
+  name = "Reader operations"
+  status = "ready"
+  blurb = "Listings and threads: `subreddit`/`r`, the logged-out `frontpage`/`front`/`home`, and a post plus its `comments`/`post` tree — the reader-oriented surface of Reddit's public API."
+[[params.phases]]
+  name = "Ruby-shaped results"
+  status = "ready"
+  blurb = "A subreddit or front-page listing comes back as an **Array** of **Hashes**; a post-and-comments call as a single **Hash**. Arguments are plain values — a name, a sort, a limit."
+[[params.phases]]
+  name = "Configurable client"
+  status = "ready"
+  blurb = "Re-exported options: `WithUserAgent` (required — Reddit rate-limits generic agents), `WithOAuth`, `WithOAuthScript`, `WithHTTPClient` and `WithBaseURL`, so the same core serves anonymous `.json` and OAuth server-side use."
+[[params.phases]]
+  name = "Runnable example"
+  status = "ready"
+  blurb = "`examples/reddit_usage.rb` walks a subreddit listing, the front page and a comment tree. It runs under rbgo once the binding ships, and the Go core it drives is covered to 100%."
+[[params.phases]]
+  name = "rbgo binding"
+  status = "planned"
+  blurb = "`require \"reddit\"` — the thin `method_missing` shim that exposes this Session inside github.com/go-embedded-ruby (rbgo). Pending in that repo; nothing here depends on the Ruby runtime."
