@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{/* Dark Reader repaints pages that already draw their own dark theme, as this one does: ask it to stand aside. */}}
+<meta name="darkreader-lock">
 <title>{{ .Site.Title }} — the Ruby face of Reddit, pure Go, no cgo</title>
 <meta name="description" content="go-ruby-reddit — the pure-Go, Ruby-runtime-independent core of the Ruby reddit gem: a reader-oriented client for Reddit's public API that rbgo binds as require &quot;reddit&quot;.">
 <style>
